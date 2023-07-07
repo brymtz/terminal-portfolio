@@ -1,5 +1,7 @@
-import { useState } from 'react'
 import reactLogo from './assets/react.svg'
+import { useState, createContext, useEffect } from 'react'
+import { DefaultTheme, ThemeProvider } from 'styled-components'
+//import { useTheme } from 'components/hooks/useTheme'
 import viteLogo from '/vite.svg'
 import './App.css'
 

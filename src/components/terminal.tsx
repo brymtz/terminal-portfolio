@@ -1,9 +1,12 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, createContext } from "react";
 import Banner from "./banner";
 import TerminalOutput from "./terminalOutput";
 import InputArea from "./inputArea";
 import ErrorMessage from "./errorMessage";
 import WelcomeMessage from "./welcomeMessage";
+
+import { projects } from "./commands/projects";
+import Skills from "./commands/skills";
 
 // Just a little helper function so I don't have to continually update my age
 const getAge = (birthDate: Date) => {
@@ -15,6 +18,21 @@ const getAge = (birthDate: Date) => {
   }
   return age;
 };
+
+type Term = {
+  arg: string[];
+  history: string[];
+  rerender: boolean;
+  index: number;
+  clearHistory?: () => void;
+}
+
+export const termContext = createContext<Term>({
+  arg: [],
+  history: [],
+  rerender: false,
+  index:0
+})
 
 const downloadFile = (uri: string, downloadName: string) => {
   const link = document.createElement("a");
@@ -48,10 +66,8 @@ const Terminal = (props: TerminalProps) => {
     "about",
     "projects",
     "contact",
-    "awards",
     "repo",
     "skills",
-    "website",
   ] as const;
   type EchoCommand = typeof echoCommands[number];
   const utilityCommands = ["clear", "all", "cv"] as const;
@@ -209,32 +225,13 @@ const Terminal = (props: TerminalProps) => {
     ),
     projects: (
       <>
-        <p>
-          I'm always working on comp sciey (not really a word) things. Why don't
-          you check out a few of my public code repositories? Just type 'repo'
-          to get the links.
-        </p>
-        <p>
-          I've also dabbled in producing a{" "}
-          <a
-            target="_blank"
-            rel="noopener noreferrer"
-            href="https://weaverworks.co.za"
-          >
-            property-management portal
-          </a>{" "}
-          that provides property managers and buildings with some really cool
-          software and tools. The project uses TypeScript, Node.js, React (with
-          Material-UI components) and Firebase.
-        </p>
-        <p>
-          You can also check out my MSc thesis{" "}
-          <a href="MSc_Thesis.pdf" download="Craig Feldman - MSc Thesis.pdf">
-            An investigation into the applicability of a blockchain based voting
-            system
-          </a>{" "}
-          - this one took a while!
-        </p>
+      <div>
+        {projects.map((item) =>{
+          return <div>
+            <h3>{item.title}</h3>
+          </div>
+        })}
+      </div>
       </>
     ),
     contact: (
@@ -242,51 +239,8 @@ const Terminal = (props: TerminalProps) => {
         <dl>
           <dt>Email</dt>
           <dd>
-            <a href="mailto:craig@craigfeldman.com">craig@craigfeldman.com</a>
+            <a href="mailto:devbmartinez@gmail.com<">devbmartinez@gmail.com</a>
           </dd>
-          <dt>Smoke signals</dt>
-          <dd>general Cape Town region</dd>
-          <dt>myspace</dt>
-          <dd>just kidding</dd>
-        </dl>
-      </>
-    ),
-    awards: (
-      <>
-        <dl>
-          <dt>2016</dt>
-          <dd>University of Oxford full scholarship</dd>
-          <dd>
-            Standard Bank Africa Chairman's Scholarship (
-            <a
-              target="_blank"
-              rel="noopener noreferrer"
-              href="https://www.standardbank.com/sbg/careers/early-careers/early-careers-overview/chairmans-scholarship"
-            >
-              view scholarship
-            </a>
-            )
-          </dd>
-
-          <dt>2015</dt>
-          <dd>Dean's Merit List</dd>
-
-          <dt>2014</dt>
-          <dd>Dean's Merit List</dd>
-          <dd>BSG Prize (Best 3rd year Computer Science student)</dd>
-          <dd>Class Medal (1st place) for all 3 Computer Science courses</dd>
-          <dd>Commerce Faculty Scholarship</dd>
-
-          <dt>2013</dt>
-          <dd>Dean's Merit List</dd>
-          <dd>Computer Science Merit Award (top 5%)</dd>
-          <dd>Class Medal for Inferential Statistics</dd>
-          <dd>Computer Science Merit Award (top 5%)</dd>
-          <dd>Commerce Faculty Scholarship</dd>
-
-          <dt>2012</dt>
-          <dd>Dean's Merit List</dd>
-          <dd>Computer Science Merit Award (top 5%)</dd>
         </dl>
       </>
     ),
@@ -318,186 +272,10 @@ const Terminal = (props: TerminalProps) => {
       </>
     ),
     skills: (
-      <>
-        <div className="terminal-heading">Languages</div>
-        <dl>
-          <dt>TypeScript</dt>
-          <dd>
-            ##{" "}
-            <span style={{ color: "#00DE12", textShadow: "0 0 5px #00DE12" }}>
-              #############
-            </span>{" "}
-            ##
-          </dd>
-          <dt>Go</dt>
-          <dd>
-            ##{" "}
-            <span style={{ color: "#00DE12", textShadow: "0 0 5px #00DE12" }}>
-              ############
-            </span>
-            {"  "}
-            ##
-          </dd>
-          <dt>Kotlin</dt>
-          <dd>
-            ##{" "}
-            <span style={{ color: "#42D100", textShadow: "0 0 5px #42D100" }}>
-              ###########
-            </span>
-            {"   "}
-            ##
-          </dd>
-          <dt>Java</dt>
-          <dd>
-            ##{" "}
-            <span style={{ color: "#42D100", textShadow: "0 0 5px #42D100" }}>
-              ###########
-            </span>
-            {"   "}
-            ##
-          </dd>
-          <dt>C# and C++</dt>
-          <dd>
-            ##{" "}
-            <span style={{ color: "#99D100", textShadow: "0 0 5px #99D100" }}>
-              ########
-            </span>
-            {"      "}
-            ##
-          </dd>
-          <dt>Python</dt>
-          <dd>
-            ##{" "}
-            <span style={{ color: "#D16200", textShadow: "0 0 5px #D16200" }}>
-              #####
-            </span>
-            {"         "}
-            ##
-          </dd>
-        </dl>
-
-        <div className="terminal-heading">Cloud &amp; Infrastructure</div>
-        <dl>
-          <dt>GCP / Firebase</dt>
-          <dd>
-            ##{" "}
-            <span style={{ color: "#99D100", textShadow: "0 0 5px 99D100" }}>
-              #########
-            </span>
-            {"     "}
-            ##
-          </dd>
-          <dt>Azure</dt>
-          <dd>
-            ##{" "}
-            <span style={{ color: "#99D100", textShadow: "0 0 5px 99D100" }}>
-              #########
-            </span>
-            {"     "}
-            ##
-          </dd>
-          <dt>AWS</dt>
-          <dd>
-            ##{" "}
-            <span style={{ color: "#99D100", textShadow: "0 0 5px #99D100" }}>
-              ########
-            </span>
-            {"      "}
-            ##
-          </dd>
-          <dt>
-            Infrastructure <br />
-            <span style={{ fontSize: "smaller" }}>
-              (Docker, Kubernetes, DBs, etc.)
-            </span>
-          </dt>
-          <dd>
-            ##{" "}
-            <span style={{ color: "#99D100", textShadow: "0 0 5px 99D100" }}>
-              #########
-            </span>
-            {"     "}
-            ##
-          </dd>
-        </dl>
-
-        <div className="terminal-heading">Web</div>
-        <dl>
-          <dt>React</dt>
-          <dd>
-            ##{" "}
-            <span style={{ color: "#00DE12", textShadow: "0 0 5px #00DE12" }}>
-              ############
-            </span>
-            {"  "}
-            ##
-          </dd>
-          <dt>Angular</dt>
-          <dd>
-            ##{" "}
-            <span style={{ color: "#D16200", textShadow: "0 0 5px #D16200" }}>
-              #####
-            </span>
-            {"         "}
-            ##
-          </dd>
-          <dt>General web development</dt>
-          <dd>
-            ##{" "}
-            <span style={{ color: "#5BD100", textShadow: "0 0 5px 5BD100" }}>
-              #########
-            </span>
-            {"     "}
-            ##
-          </dd>
-        </dl>
-      </>
-    ),
-    website: (
-      <>
-        <p>
-          I built this website from scratch using {glow("React")} and{" "}
-          {glow("TypeScript")}. It is a rewrite of my{" "}
-          <a
-            target="_blank"
-            rel="noopener noreferrer"
-            href="https://github.com/craig-feldman/personal-website"
-          >
-            previous
-          </a>{" "}
-          website that used{" "}
-          <a
-            target="_blank"
-            rel="noopener noreferrer"
-            href="https://terminal.jcubic.pl/"
-          >
-            JQuery Terminal Plugin
-          </a>{" "}
-          (and some inspiration from{" "}
-          <a
-            target="_blank"
-            rel="noopener noreferrer"
-            href="http://www.ronniepyne.com"
-          >
-            Ronnie Pyne
-          </a>
-          ).
-        </p>
-        <p>
-          The source code for this site can be found on{" "}
-          <a
-            target="_blank"
-            rel="noopener noreferrer"
-            href="https://github.com/craig-feldman/personal-website-react"
-          >
-            GitHub
-          </a>
-          . Feel free to use this website for inspiration, or go ahead and copy
-          some of the code! If you do, all I ask is that you give this site a
-          mention :)
-        </p>
-      </>
-    ),
+      <div>
+        <Skills></Skills>
+      </div>
+      )
   };
 
   const processCommand = (input: string) => {

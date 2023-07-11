@@ -1,0 +1,22 @@
+.project-container{
+    margin-top: 0.5rem;
+    margin-bottom: 0.875rem;
+}
+
+.projects-intro{
+    margin-top: 0.5rem;
+    margin-bottom: 1rem;
+    line-height: 1.5rem;
+}
+
+.project-title{
+    font-weight: 700;
+    margin-bottom: 0.25rem;
+}
+
+.project-desc{
+    color: #ffff;
+    text-align: justify;
+    line-height: 1.5rem;
+    max-width: 500px;
+}

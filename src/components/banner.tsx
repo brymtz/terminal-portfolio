@@ -5,7 +5,7 @@ type BannerProps ={
 };
 
 const Banner = (props: BannerProps) => (
-    <div className="banner">{ props.banner }</div>
+    <div className="terminal-banner">{ props.banner }</div>
 );
 
 export default Banner;

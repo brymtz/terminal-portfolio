@@ -84,7 +84,7 @@ export const checkThemeSwitch = (
 export const argTab = (
   inputVal: string,
   setInputVal: (value: React.SetStateAction<string>) => void,
-  setHints: (value: React.SetStateAction<string[]>) => void,
+  //setHints: (value: React.SetStateAction<string[]>) => void,
   hintsCmds: string[]
 ): string[] | undefined => {
   // 1) if input is 'themes '

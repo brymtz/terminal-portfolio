@@ -8,8 +8,8 @@ const Social = () => {
                 <p>Here are my social links</p>
                 {social.map(({ id, title, url }) => (
                     <div className="project-title" key={title}>
-                        <p>{`${id}. ${title}`}</p>
-                        <a href={url} target="_blank">- {url}</a>
+                        <p>{`${id}`} <a href={url} target="_blank">{title}</a> </p>
+                        
                     </div>
                 ))}
             </div>

@@ -18,7 +18,7 @@ const welcomeMessage = "Welcome to my site.\n"+
   `
   getYear();
 
-const prompt = "visitante@terminal~$:";
+const prompt = "visitor@terminal~$:";
 
 function App() {
   return (

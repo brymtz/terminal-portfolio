@@ -6,7 +6,7 @@ import ErrorMessage from "./errorMessage";
 import WelcomeMessage from "./welcomeMessage";
 
 //Import de los components de los comandons
-import { projects } from "./commands/projects";
+import Projects from "./commands/projects";
 import Skills from "./commands/skills";
 import Menu from "./commands/menu";
 import Social from "./commands/social";
@@ -70,7 +70,6 @@ const Terminal = (props: TerminalProps) => {
     "about",
     "projects",
     "contact",
-    "repo",
     "skills",
     "social"
   ] as const;
@@ -201,45 +200,12 @@ const Terminal = (props: TerminalProps) => {
     ),
     projects: (
       <>
-      <div>
-        {projects.map((item) =>{
-          return <div>
-            <h3>{item.title}</h3>
-          </div>
-        })}
-      </div>
+        <Projects></Projects>
       </>
     ),
     contact: (
       <>
         <Contact></Contact>
-      </>
-    ),
-    repo: (
-      <>
-        <ul>
-          <li>
-            <a
-              target="_blank"
-              rel="noopener noreferrer"
-              href="https://github.com/craig-feldman"
-            >
-              GitHub
-            </a>{" "}
-            - Unfortunately, I could only make a small subset of my projects
-            public.
-          </li>
-          <li>
-            <a
-              target="_blank"
-              rel="noopener noreferrer"
-              href="https://bitbucket.org/fldcra001"
-            >
-              Bitbucket
-            </a>{" "}
-            - A few university projects.
-          </li>
-        </ul>
       </>
     ),
     skills: (

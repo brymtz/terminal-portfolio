@@ -5,8 +5,11 @@ import InputArea from "./inputArea";
 import ErrorMessage from "./errorMessage";
 import WelcomeMessage from "./welcomeMessage";
 
+//Import de los components de los comandons
 import { projects } from "./commands/projects";
 import Skills from "./commands/skills";
+import Menu from "./commands/menu";
+import Social from "./commands/social";
 
 // Just a little helper function so I don't have to continually update my age
 const getAge = (birthDate: Date) => {
@@ -62,12 +65,13 @@ const Terminal = (props: TerminalProps) => {
   useEffect(scrollLastCommandTop, [output]);
 
   const echoCommands = [
-    "help",
+    "menu",
     "about",
     "projects",
     "contact",
     "repo",
     "skills",
+    "social"
   ] as const;
   type EchoCommand = typeof echoCommands[number];
   const utilityCommands = ["clear", "all", "cv"] as const;
@@ -92,37 +96,8 @@ const Terminal = (props: TerminalProps) => {
   };
 
   const commands: { [key in EchoCommand]: JSX.Element } = {
-    help: (
-      <div>
-        <p>
-          Wow, I thought the only people who would visit this site would be bots
-          and spammers, guess I was wrong. Just type any of the commands below
-          to get some more info. You can even type a few letters and press [tab]
-          or '.' to autocomplete.
-        </p>
-        <dl>
-          <dt>about</dt>
-          <dd>Stop stalking me</dd>
-          <dt>projects</dt>
-          <dd>Yeah, I've made some cool stuff before</dd>
-          <dt>skills</dt>
-          <dd>I'm pretty good at some things</dd>
-          <dt>awards</dt>
-          <dd>A bit of boasting</dd>
-          <dt>repo</dt>
-          <dd>Take a look at some of my work</dd>
-          <dt>cv</dt>
-          <dd>Check out my CV [pdf - 197KB]</dd>
-          <dt>contact</dt>
-          <dd>Bring on the spam</dd>
-          <dt>website</dt>
-          <dd>How I built this</dd>
-          <dt>all</dt>
-          <dd>Tell me everything</dd>
-          <dt>clear</dt>
-          <dd>Clears the terminal of all output</dd>
-        </dl>
-      </div>
+    menu: (
+      <Menu></Menu>
     ),
     about: (
       <div>
@@ -275,7 +250,12 @@ const Terminal = (props: TerminalProps) => {
       <div>
         <Skills></Skills>
       </div>
-      )
+      ),
+      social:(
+        <>
+          <Social></Social>
+        </>
+      ),
   };
 
   const processCommand = (input: string) => {

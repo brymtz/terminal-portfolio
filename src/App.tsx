@@ -6,7 +6,7 @@ const getYear = () => {
 };
 
 const welcomeMessage = "Welcome to my site.\n"+
-"Type 'help' to view a list of available commands.\n";
+"Type 'menu' to view a list of available commands.\n";
 
   const bannerCondensed =`
   ██████╗ ██████╗ ██╗   ██╗ █████╗ ███╗   ██╗    ███╗   ███╗ █████╗ ██████╗ ████████╗██╗███╗   ██╗███████╗███████╗

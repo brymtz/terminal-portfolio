@@ -103,19 +103,19 @@ export const argTab = (
     return [];
   }
   // 5) if input is 'projects' or 'socials'
-  else if (inputVal === "projects " || inputVal === "socials ") {
+  else if (inputVal === "projects " || inputVal === "social ") {
     setInputVal(`${inputVal}go`);
     return [];
   }
 
   // 6) if input is 'projects g' or 'socials g'
-  else if (inputVal === "projects g" || inputVal === "socials g") {
+  else if (inputVal === "projects g" || inputVal === "social g") {
     setInputVal(`${inputVal}o`);
     return [];
   }
 
   // 7) if input is 'socials go '
-  else if (_.startsWith(inputVal, "socials go ")) {
+  else if (_.startsWith(inputVal, "social go ")) {
     ["1.Github", "2.Dev.to", "3.Facebook", "4.Instagram"].forEach(t => {
       hintsCmds = [...hintsCmds, t];
     });

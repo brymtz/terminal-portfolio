@@ -1,5 +1,3 @@
-import React from "react";
-
 type OutputProps = {
   outputs: (string | JSX.Element)[];
 };

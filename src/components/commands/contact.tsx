@@ -1,5 +1,3 @@
-import React from "react";
-
 const Contact = () => {
     const mail = 'devbmartinez@gmail.com';
     const enlace = `mailto:${mail}`;

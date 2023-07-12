@@ -1,3 +1,5 @@
+import "../../styles/menu.css"
+
 const Menu = () => {
     return (
         <>
@@ -9,21 +11,21 @@ const Menu = () => {
                     to autocomplete.
                 </p>
                 <dl>
-                    <dt>about</dt>
+                    <dt><span className="command">about</span></dt>
                     <dd>Some information about me</dd>
-                    <dt>contact</dt>
+                    <dt><span className="command">contact</span></dt>
                     <dd>Send an email to me</dd>
-                    <dt>cv</dt>
+                    <dt><span className="command">cv</span></dt>
                     <dd>Download my CV</dd>
-                    <dt>clear</dt>
+                    <dt><span className="command">clear</span></dt>
                     <dd>Clears the terminal of all output</dd>
-                    <dt>menu</dt>
+                    <dt><span className="command">menu</span></dt>
                     <dd>Check available commands</dd>
-                    <dt>projects</dt>
+                    <dt><span className="command">projects</span></dt>
                     <dd>View projects that I've coded</dd>
-                    <dt>skills</dt>
+                    <dt><span className="command">skills</span></dt>
                     <dd>Discover what I'm good at</dd>
-                    <dt>social</dt>
+                    <dt><span className="command">social</span></dt>
                     <dd>Check out my social accounts</dd>
                 </dl>
             </div>

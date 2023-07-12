@@ -9,7 +9,7 @@ const Projects = () => {
             <div className="project-title">{`${id}. ${title}. | ${languaje} | ${data}`}</div>
             <div className="project-desc">{desc}</div>
             <div className="project-desc">
-              <a href={url} target="_blank">Visitar repositorio</a>
+              <a href={url} target="_blank">Visita repository</a>
               </div>
           </div>
         ))}

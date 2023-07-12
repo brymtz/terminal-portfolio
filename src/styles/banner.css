@@ -1,0 +1,50 @@
+@media (max-width: 480px){
+    .terminal-banner{
+        font-size: 33%;
+        padding: 15px;
+        text-align: center;
+        
+    }
+}
+
+@media (max-width: 400px){
+    .terminal-banner{
+        font-size: 29%;
+        padding: 15px;
+        text-align: center;
+        
+    }
+}
+
+@media (max-width: 370px){
+    .terminal-banner{
+        font-size: 28%;
+        padding: 15px;
+        text-align: center;
+        
+    }
+}
+
+@media (min-width: 481px) and (max-width: 768px){
+    .terminal-banner{
+        font-size: 33%;
+        padding: 15px;
+        text-align: center;
+    }
+}
+
+@media (min-width: 769px) and (max-width: 1024px){
+    .terminal-banner{
+        font-size: 70%;
+        padding: 20px;
+        text-align: center;
+    }
+}
+
+@media (min-width: 1025px){
+    .terminal-banner{
+        font-size: 100%;
+        padding: 20px;
+        text-align: center;
+    }
+}

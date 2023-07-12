@@ -1,3 +1,4 @@
+import "../styles/banner.css"
 type BannerProps ={
     banner: string;
 };

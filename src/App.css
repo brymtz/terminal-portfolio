@@ -3,7 +3,8 @@
   overflow-y: auto;
   overflow-x: hidden;
   cursor: text;
-  background-color: #171717;
+  background-color: #211D1B;
+  
 }
 
 .terminal-content {
@@ -38,6 +39,7 @@
 }
 
 .terminal-welcome-message {
+  font-family: monospace;
   margin-bottom: 20px;
 }
 

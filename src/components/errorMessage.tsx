@@ -8,10 +8,10 @@ const ErrorMessage = (props: ErrorMessageProps) => {
     return (
         <div className="terminal-error-group">
             <span className="terminal-error">
-                {`Comando no encontrado: ${props.command}`}
+                {`Command not found: ${props.command}`}
             </span>
             <span>
-                {`Escribe 'ayuda' para visualizar los comandos disponibles`}
+                {`Type 'menu' to view a list of available commands`}
             </span>
         </div>
     );

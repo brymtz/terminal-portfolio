@@ -10,6 +10,7 @@ import { projects } from "./commands/projects";
 import Skills from "./commands/skills";
 import Menu from "./commands/menu";
 import Social from "./commands/social";
+import Contact from "./commands/contact";
 
 // Just a little helper function so I don't have to continually update my age
 const getAge = (birthDate: Date) => {
@@ -74,7 +75,7 @@ const Terminal = (props: TerminalProps) => {
     "social"
   ] as const;
   type EchoCommand = typeof echoCommands[number];
-  const utilityCommands = ["clear", "all", "cv"] as const;
+  const utilityCommands = ["clear", "cv"] as const;
   type UtilityCommand = typeof utilityCommands[number];
   const allCommands = [...echoCommands, ...utilityCommands] as const;
   type Command = typeof allCommands[number];
@@ -211,12 +212,7 @@ const Terminal = (props: TerminalProps) => {
     ),
     contact: (
       <>
-        <dl>
-          <dt>Email</dt>
-          <dd>
-            <a href="mailto:devbmartinez@gmail.com<">devbmartinez@gmail.com</a>
-          </dd>
-        </dl>
+        <Contact></Contact>
       </>
     ),
     repo: (
@@ -301,31 +297,9 @@ const Terminal = (props: TerminalProps) => {
           setOutput([]);
           break;
         }
-        case "all": {
-          // Output all commands in a custom order.
-          const allCommandsOutput = [
-            "about",
-            "awards",
-            "skills",
-            "projects",
-            "repo",
-            "contact",
-            "website",
-          ].map((command) => (
-            <>
-              <div className="terminal-heading">{command}</div>
-              <div className="terminal-command-output">
-                {commands[command as EchoCommand]}
-              </div>
-            </>
-          ));
-
-          setOutput([commandRecord, ...allCommandsOutput]);
-          break;
-        }
         case "cv": {
           setOutput([...output, commandRecord]);
-          downloadFile("CV.pdf", "Craig Feldman - Curriculum Vitae.pdf");
+          downloadFile("CV.pdf", "Bryan Martinez - Curriculum Vitae.pdf");
           break;
         }
       }

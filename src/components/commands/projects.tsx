@@ -9,7 +9,7 @@ const Projects = () => {
             <div className="project-title">{`${id}. ${title}. | ${languaje} | ${data}`}</div>
             <div className="project-desc">{desc}</div>
             <div className="project-desc">
-              <a href={url} target="_blank">Visita repository</a>
+              <a href={url} target="_blank">Visit repository</a>
               </div>
           </div>
         ))}
@@ -21,32 +21,32 @@ const url = "https://github.com/brymtz/";
 export const projects = [
   {
     id: 1,
-    title: "Sistemas de amortizacion",
-    desc: "Sistema que emula los sistemas de amortizacion francesa y alemana en la solicitud de creditos",
+    title: "Amortization system",
+    desc: "WebApp that emulates the French and German amortization systems in the credit application",
     languaje: "PHP",
     data: "2023-05",
     url: `${url}sistemasAmortizacion`,
   },
   {
     id: 2,
-    title: "Sistema de gestion de proyectos",
-    desc: "Sistema desarrollado para el concurso HatunSoft el cual permite crear tareas, asignarla a un personal y visualizar en un tablero Kanban",
+    title: "Project management system",
+    desc: "System developed for the HatunSoft contest which allows creating tasks, assigning it to a staff and visualizing it on a Kanban board",
     languaje: "PHP",
     data: "2023-06",
     url: `${url}SistemaGestionProyectos`,
   },
   {
     id: 3,
-    title: "Gestion y venta de boletos de buses interprovinciales en Ecuador",
-    desc: "Sistema web y movil en el cual se pueden comprar boletos de buses y gestionar las rutas y personal de las cooperativas",
-    languaje: "Angular con TypeScript",
+    title: "Management and sale of interprovincial bus tickets in Ecuador",
+    desc: "Web and mobile system in which you can buy bus tickets and manage the routes and staff of the cooperatives",
+    languaje: "Angular with TypeScript",
     data: "2023-05",
     url: "https://gitlab.com/busesecuador/buses-ecuador-frontend",
   },
   {
     id: 4,
     title: "Web Page Orizontel",
-    desc: "Pagina web para la empresa Orizontel",
+    desc: "Website for the company Orizontel",
     languaje: "PHP - JavaScript",
     data: "2022-08",
     url: "https://orizontel.ec/",
@@ -54,10 +54,10 @@ export const projects = [
   {
     id: 5,
     title: "MERN App Rick y Morty",
-    desc: "Aplicacion que muestra la informacion de los personajes de la serie Rick y Morty",
-    languaje: "React con JavaScript",
+    desc: "App that shows the information of the characters of the Rick and Morty series",
+    languaje: "React with JavaScript",
     data: "2023-05",
-    url: "https://astro-paper.pages.dev/",
+    url: `${url}MERN_App_Rick_Morty`,
   },
 ];
 
